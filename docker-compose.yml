@@ -14,8 +14,8 @@ services:
       WORDPRESS_DB_PASSWORD: wppass
       WORDPRESS_DB_NAME: wpdb
     volumes:
-      - ./server/wordpress:/var/www/html
-      - ./wp-content:/var/www/html/wp-content
+      - ./server/wordpress:/var/www/html:Z
+      - ./wp-content:/var/www/html/wp-content:Z
 
   db:
     image: mysql:5.7
@@ -27,4 +27,4 @@ services:
       MYSQL_PASSWORD: wppass
       MYSQL_ROOT_PASSWORD: rootpass
     volumes:
-      - ./assets/data:/docker-entrypoint-initdb.d
+      - ./assets/data:/docker-entrypoint-initdb.d:z
