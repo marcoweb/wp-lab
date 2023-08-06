@@ -14,12 +14,8 @@ services:
       WORDPRESS_DB_PASSWORD: wppass
       WORDPRESS_DB_NAME: wpdb
     volumes:
-      - type: bind
-        source: ./server/wordpress
-        target: /var/www/html
-      - type: bind
-        source: ./wp-content
-        target: /var/www/html/wp-content
+      - ./server/wordpress:/var/www/html
+      - ./wp-content:/var/www/html/wp-content:z
 
   db:
     image: mysql:5.7
